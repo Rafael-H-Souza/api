@@ -1,4 +1,5 @@
 const express = require('express');
+const authenticateToken = require('../middleware/auth')
 const userService = require('../services/userService')
 
 const router = express.Router();
@@ -17,7 +18,7 @@ router.post('/register', async (req, res)=>{
 router.post('/login', async(req, res)=>{
     try{
         const {username, password} = req.body;
-        //user service login
+        const token =  await userService.login(username, password)
         res.json(token);
     }catch(err){
         console.log(`${err}`);
@@ -26,10 +27,9 @@ router.post('/login', async(req, res)=>{
 });
 
 //middleware
-router.get('/users',(req, res)=>{
+router.get('/users',authenticateToken,async(req, res)=>{
     try{
-        //user service get users
-        const {username, password} = req.body;
+        const users = await userService.getUsers()
         res.json(users);
     }catch(err){
         console.log(`${err}`);

@@ -5,7 +5,7 @@ class UserRepository {
         return await User.create(user)
     }
     async findByUserName(username){
-        return await User.finfOne({where: {username: username}})
+        return await User.findOne({where: {username: username}})
     }
 
     async findAll(){
