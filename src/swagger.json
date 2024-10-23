@@ -13,7 +13,7 @@
           "bearerFormat": "JWT"
         }
       }
-    }
+    
   },
   "paths": {
     "/api/user/register": {
