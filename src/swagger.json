@@ -3,7 +3,8 @@
   "info": {
     "title": "User API",
     "description": "API para registro, login e listagem de usuários",
-    "version": "1.0.0",
+    "version": "1.0.0"
+  },
     "components":{
       "securitySchemes":{
         "BearerAuth":{
